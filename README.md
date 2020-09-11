@@ -25,3 +25,4 @@ This module is dedicated for calculating different Step response analysis factor
     ii) import `stepresponse` to your program.
 
 ## For usage example refer `test_example.py` file.
+## For more information about the package visit [stepanalyser package](https://test.pypi.org/project/stepanalyser/).
