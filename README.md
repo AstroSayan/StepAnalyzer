@@ -14,12 +14,14 @@ This module is dedicated for calculating different Step response analysis factor
 1. For Anaconda:
     i) Open Anaconda Prompt.
     ii) Write the following command:
-        pip install -i https://test.pypi.org/simple/ stepanalyser==0.0.1
-    iii) import 'stepresponse' to your program.
+        `pip install -i https://test.pypi.org/simple/ stepanalyser==0.0.1`
+    iii) import `stepresponse` to your program.
 2. For Jupyter Notebook or Google colab:
-    i) Add '!pip install -i https://test.pypi.org/simple/ stepanalyser==0.0.1' before writing the program.
-    ii) import 'stepresponse' to your program.
+    i) Add `pip install -i https://test.pypi.org/simple/ stepanalyser==0.0.1` before writing the program.
+    ii) import `stepresponse` to your program.
 3. For system installation;
     i) Write the following command in prompt at proper path:
-        pip install -i https://test.pypi.org/simple/ stepanalyser==0.0.1
-    ii) import 'stepresponse' to your program.
+        `pip install -i https://test.pypi.org/simple/ stepanalyser==0.0.1`
+    ii) import `stepresponse` to your program.
+
+## For usage example refer `test_example.py` file.
