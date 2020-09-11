@@ -24,7 +24,7 @@ Operating System :: MacOS
 """
 
 setup(
-    name='stepanalysis',
+    name='stepresponse',
     version='0.0.1',
     author='Sayan Das',
     author_email='astrosayan8@gmail.com',
