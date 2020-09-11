@@ -8,7 +8,7 @@ Email: astrosayan8@gmail.com
 Dept. of AEIE
 RCC Institute of Information Technology
 """
-
+import numpy as np
 #Peak time
 def peak(res,time,zeta):
   if (zeta==0):
