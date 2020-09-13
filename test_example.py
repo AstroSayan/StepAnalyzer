@@ -8,7 +8,7 @@ Author: Sayan Das
 Original file is located at
     https://colab.research.google.com/drive/1GsrNWB_G81rEuf3IHw8egb-sCckt4szy
     
-Add !pip install control and !pip install stepanalyser==0.1.1 if you are using Google colab or Jupyter notebook    
+Add !pip install control and !pip install stepanalyser if you are using Google colab or Jupyter notebook    
 """
 
 from control import *           #importing control system library
