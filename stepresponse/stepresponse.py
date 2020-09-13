@@ -9,6 +9,19 @@ Dept. of AEIE
 RCC Institute of Information Technology
 """
 import numpy as np
+from control import *
+from math import *
+
+#System representation
+def sys(num,den):
+  if (len(den)!=3):
+    raise ValueError("The system should be of second order.")
+  else:
+    transfer_function = tf(num,den)
+    w =  sqrt(den[2]/den[0])
+    zeta = den[1]/(2*w*den[0])
+    return [transfer_function, w, zeta]
+
 #Peak time
 def peak(res,time,zeta):
   if (zeta==0):
@@ -93,3 +106,64 @@ def overshoot(res,time,zeta):
   samp = s_t[0]
   ovrsht = ((pamp-samp)/samp)*100
   return ovrsht
+
+#**********************************************************
+#Error functions
+
+#peak error
+def peak_err(res,time,w,zeta):
+  pt = peak(res, time, zeta)
+  pr_pt = pt[0]
+  th_pt = np.pi/(w*sqrt(1-(zeta**2)))
+  err = abs(th_pt-pr_pt)
+  p_err = (err*100)/th_pt
+  return [th_pt, err, p_err]
+
+#rise error
+def rise_err(res,time,w,zeta): 
+  pr_rt = rise(res, time, zeta)
+  wd = (w*sqrt(1-(zeta**2)))
+  theta = atan(wd/(zeta*w))
+  th_rt = (np.pi-theta)/wd
+  err = abs(th_rt-pr_rt)
+  p_err = (err*100)/th_rt
+  return [th_rt, err, p_err]
+
+#settle error
+def settle_err(res,time,w,zeta):
+  pr_st = settle(res, time, zeta)
+  th_st = 4/(zeta*w)
+  err = abs(th_st-pr_st)
+  p_err = (err*100)/th_st
+  return [th_st, err, p_err]
+
+#steady-state error at certain time point
+def steady_err(res,time,w,zeta,flag):
+  sdt = steady(res, time, zeta)
+  st = sdt[1]
+  if (flag==0):
+    time_point = st
+    z = sqrt(1-(zeta**2))
+    wd = (w*sqrt(1-(zeta**2)))
+    phi = acos(zeta)
+    p = (zeta*w*time_point)
+    err = ((exp(-p))*sin((wd*time_point)+phi))/z
+    return err
+  elif (flag==1):
+    err_list = []
+    for i in time:
+      time_point = i
+      z = sqrt(1-(zeta**2))
+      wd = (w*sqrt(1-(zeta**2)))
+      phi = acos(zeta)
+      p = (zeta*w*time_point)
+      err = ((exp(-p))*sin((wd*time_point)+phi))/z 
+      err_list.append(err)
+    return err_list
+
+#max overshoot error
+def overshoot_err(res,time,w,zeta):
+  pr_os = (overshoot(res, time, zeta))/100
+  th_os = exp(-((np.pi)*zeta)/sqrt(1-(zeta**2)))
+  err = abs(th_os-pr_os)
+  return [th_os, err]
