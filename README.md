@@ -9,6 +9,7 @@ This module is dedicated for calculating different Step response analysis factor
 
 # Further modification
 1. Bug fixes (if any)
+2. Developing a GUI for whole module.
 
 # Installing and importing
 1. For Anaconda:
