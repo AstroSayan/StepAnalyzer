@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="stepanalyser", 
-    version="0.1.1",
+    version="0.2.0",
     author="Sayan Das",
     author_email="astrosayan8@gmail.com",
     description="Step response analyser",
@@ -20,5 +20,6 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=['numpy',
-                      'control'],
+                      'control',
+                      'sympy'],
 )
