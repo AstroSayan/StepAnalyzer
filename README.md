@@ -25,9 +25,9 @@ This module is dedicated for calculating different Step response analysis factor
     i) Open Anaconda Prompt.
     ii) Write the following command:
         `pip install stepanalyzer`
-    iii) import `stepresponse` to your program.
+    iii) import `stepanalyzer` to your program.
 2. For Jupyter Notebook or Google colab:
-    i) Add `pip install stepanalyzer` before writing the program.
+    i) Add `!pip install stepanalyzer` before writing the program.
     ii) import `stepanalyzer` to your program.
 3. For system installation;
     i) Write the following command in prompt at proper path:
@@ -35,4 +35,4 @@ This module is dedicated for calculating different Step response analysis factor
     ii) import `stepanalyzer` to your program.
 
 ## For usage example refer `test_example.py` file.
-## For more information about the package visit [stepanalyzer package](https://pypi.org/project/stepanalyser/).
+## For more information about the package visit [stepanalyzer package](https://pypi.org/project/stepanalyzer/).
