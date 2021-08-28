@@ -5,4 +5,5 @@
 #
 # This file contains the initialization information from the StepAnalyzer package.
 
-from .stepanalyzer import *
+from .system import sys
+from .step import StepAnalyzer
