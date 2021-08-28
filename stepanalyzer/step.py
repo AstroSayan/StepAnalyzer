@@ -8,10 +8,10 @@ Dept. of AEIE
 RCC Institute of Information Technology
 """
 
-from system import *
+from .system import *
 
 
-class StepAnalyser(sys):
+class StepAnalyzer(sys):
 
     def __init__(self, num, den, *args, **kwargs):
         super().__init__(num, den)
