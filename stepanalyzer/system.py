@@ -10,7 +10,7 @@ RCC Institute of Information Technology
 from control import *
 from math import *
 import matplotlib.pyplot as plt
-from errors import *
+from .errors import *
 
 
 class sys:
