@@ -31,10 +31,11 @@ class sys:
 
     def transfer_function(self):
         self.tf = tf(self.num, self.den)
+        self.tfprint = self.tf.__str__()
         gm, pm, wg, wp = margin(self.tf)
-        if (gm < 0 and pm < 0) and gm > pm:
+        if (not np.isinf(gm)) and ((gm < 0 and pm < 0) or gm > pm):
             self.stable = "Unstable"
-            raise StabilityError("The system is unstable!")
+            # raise StabilityError("The system is unstable!")
         elif gm == pm or (gm == 0 and pm == 0):
             self.stable = "Marginally Stable"
         else:
@@ -55,16 +56,25 @@ class sys:
 
     def properties(self):
         if self.order == 2:
-            self.omega = round(sqrt(self.den[2] / self.den[0]), 1)
-            self.zeta = round(self.den[1] / (2 * self.omega * self.den[0]), 2)
-            if self.zeta == 0:
-                self.type = "Undamped"
-            elif self.zeta > 1:
-                self.type = "Overdamped"
-            elif self.zeta == 1:
-                self.type = "Critically damped"
-            elif self.zeta < 1:
-                self.type = "Underdamped"
+            try:
+                self.omega = round(sqrt(self.den[2] / self.den[0]), 1)
+            except:
+                self.omega = 'undefined'
+            try:
+                self.zeta = round(self.den[1] / (2 * self.omega * self.den[0]), 2)
+            except:
+                self.zeta = 'undefined'
+            if self.zeta != 'undefined' and self.omega != 'undefined':
+                if self.zeta == 0:
+                    self.type = "Undamped"
+                elif self.zeta > 1:
+                    self.type = "Overdamped"
+                elif self.zeta == 1:
+                    self.type = "Critically damped"
+                elif self.zeta < 1:
+                    self.type = "Underdamped"
+            else:
+                self.type = 'undefined'
             return [self.omega, self.zeta]
         else:
             raise PropertyError("System is not of 2nd order.")
