@@ -2,7 +2,7 @@ import numpy as np
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
-from stepanalyzer.errors import SystemError, StabilityError, PropertyError, InputError
+from stepanalyzer.errors import SysError, StabilityError, PropertyError, InputError
 from stepanalyzer.system import sys
 from stepanalyzer.step import StepAnalyzer
 
@@ -43,7 +43,7 @@ async def sysInfo(numerator: str = Header(None), denominator: str = Header(None)
         }
         resp = JSONResponse(content=content)
         return resp
-    except SystemError as e:
+    except SysError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except StabilityError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -81,7 +81,7 @@ async def sysAnalysis(numerator: str = Header(None), denominator: str = Header(N
         }
         resp = JSONResponse(content=content)
         return resp
-    except SystemError as e:
+    except SysError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except StabilityError as e:
         raise HTTPException(status_code=400, detail=str(e))

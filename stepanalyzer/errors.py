@@ -1,4 +1,4 @@
-class SystemError(Exception):
+class SysError(Exception):
     pass
 
 

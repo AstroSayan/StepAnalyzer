@@ -12,13 +12,13 @@ This module is dedicated for calculating different Step response analysis factor
 3. Added support for systems with offset characteristics.
 4. Added support for identifying unstable systems.
 5. Added separate error module for domain specific exception messages. 
-6. Support for control package, matplotlib and many more all in one module. 
+6. Support for control package, matplotlib and many more all-in-one module. 
 7. Bug fixes
  
-## Further modification
+## Further ongoing modification
 1. Bug fixes (if any)
 2. Generalizing the module further
-3. Kivymd based GUI integration
+3. Angular based StepAnalyzer webapp development. [Click here](https://github.com/sayandas10/StepAnalyzer-WebApp) to learn more!
 
 ## Installing and importing
 1. For Anaconda:

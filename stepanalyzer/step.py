@@ -32,9 +32,9 @@ class StepAnalyzer(sys):
                 self.peaktime = self.time[self.peakindex]
                 return self.peakval, self.peakindex, self.peaktime
             else:
-                raise SystemError(f"{super().getType()} systems don't have any specific Peak value.")
+                raise SysError(f"{super().getType()} systems don't have any specific Peak value.")
         elif super().getOrder() < 2:
-            raise SystemError(f"Systems of order {super().getOrder()} don't have Peak value.")
+            raise SysError(f"Systems of order {super().getOrder()} don't have Peak value.")
         else:
             self.peakval = max(self.res)
             self.peakindex = self.res.index(self.peakval)
@@ -69,7 +69,7 @@ class StepAnalyzer(sys):
                     i += 1
                 return round(total / counter, 2)
             else:
-                raise SystemError(f"{super().type} systems don't have any specific Rise time.")
+                raise SysError(f"{super().type} systems don't have any specific Rise time.")
         elif super().getOrder() < 2:
             for i in range(len(self.res)):
                 if 0.89 * steadyval < self.res[i] <= 0.90 * steadyval:
@@ -104,9 +104,9 @@ class StepAnalyzer(sys):
                         q = p + i
                 return self.time[q + 1]
             else:
-                raise SystemError(f"{super().getType()} systems don't have any specific Settling time.")
+                raise SysError(f"{super().getType()} systems don't have any specific Settling time.")
         elif super().getOrder() < 2:
-            raise SystemError(f"Systems of order {super().getOrder()} don't have Settling time.")
+            raise SysError(f"Systems of order {super().getOrder()} don't have Settling time.")
         else:
             self.peak()
             for i in range(self.peakindex, len(self.res)):

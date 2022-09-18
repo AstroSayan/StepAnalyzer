@@ -26,7 +26,7 @@ class sys:
         self.tfprint = None
         self.stable = None
         if len(self.num) > len(self.den):
-            raise SystemError(
+            raise SysError(
                 f"Invalid System. Order of numerator {len(self.num) - 1} is greater than the order of denominator {len(self.den) - 1}.")
 
     def transfer_function(self):
